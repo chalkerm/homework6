@@ -5,9 +5,10 @@ window.addEventListener("load", function() {
 });
 
 document.querySelector("#play").addEventListener("click", function() {
+	/* add volume to "Volume is: "*/
 	console.log("Play Video");
 	video.play()
-	document.querySelector('#volume').innerHTML = document.querySelector("#volumeSlider")
+	document.querySelector('#volume').innerHTML = document.volume
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -21,11 +22,13 @@ document.querySelector("#slower").addEventListener("click", function() {
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
+	/* Having rounding issues */
 	video.playbackRate = video.playbackRate * 1.1
 	console.log("New Speed is " + video.playbackRate);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
+	/* Length function not working in if statement */
 	var time = document.getElementById('myVideo')
 	video.currentTime += 5
 	if (video.currentTime > document.getElementById(myVideo).length){
@@ -40,11 +43,22 @@ document.querySelector("#skip").addEventListener("click", function() {
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
+	/* Unmute to mute not working */
 	document.querySelector('#mute').innerHTML = 'Unmute';
-	document.querySelector('#volumeSlider').innerHTML = 0;
+	video.muted = true;
 	document.querySelector('#volume').innerHTML = 0;
 	if (document.querySelector('#mute').innerHTML == 'Unmute'){
 		document.querySelector('#mute').onclick.innerHTML = "Mute"
-		document.querySelector('#volume').innerHTML = document.querySelector('#volumeSlider').innerHTML;
+		video.muted = false;
 	}
+});
+
+/* Insert Volume Slider here */
+
+document.querySelector("#old").addEventListener("click", function() {
+	/* Old School */
+});
+
+document.querySelector("#old").addEventListener("click", function() {
+	/* Original */
 });
