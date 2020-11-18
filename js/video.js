@@ -58,15 +58,15 @@ document.querySelector("#mute").addEventListener("click", function() {
 document.querySelector("#volumeSlider").addEventListener("change", function() {
 	video.volume = this.value / 100
 	document.querySelector("#volume").innerHTML = (video.volume * 100) + "%"
+	console.log(video.volume)
 });
 
 document.querySelector("#old").addEventListener("click", function() {
 	var elem = document.getElementById("myVideo");
-	elem.className += "oldTime";
+	elem.classList.add("oldTime");
 });
 
 document.querySelector("#original").addEventListener("click", function() {
-	/* Original */
 	var elem = document.getElementById("myVideo");
-	elem.className -= "oldTime";
+	elem.classList.remove("oldTime");
 });
